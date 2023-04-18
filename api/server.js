@@ -26,6 +26,7 @@ const connect = async () => {
   }
 };
 
+// app.use(cors({ origin: "https
 // app.use(cors({ origin: "https://freelance-app-front-end.vercel.app", credentials: true }));
 // app.use(cors({ origin: '*'}));
 
@@ -33,7 +34,7 @@ const connect = async () => {
 // const cors = require("cors");
 // middlewares
 app.use(express.json());
-app.use(cors({ origin: '*'}));
+app.use(cors({ origin: 'https://freelance-app-front-end.vercel.app', preflightContinue: true, credentials: true}));
 // body parser configuration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
