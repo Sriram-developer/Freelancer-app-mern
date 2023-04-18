@@ -10,6 +10,8 @@ import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+// const bodyParser = require('body-parser');
+import bodyParser from "body-parser";
 
 const app = express();
 dotenv.config();
@@ -24,8 +26,17 @@ const connect = async () => {
   }
 };
 
-app.use(cors({ origin: "*", credentials: true }));
-app.use(express.json())
+// app.use(cors({ origin: "https://freelance-app-front-end.vercel.app", credentials: true }));
+// app.use(cors({ origin: '*'}));
+
+// app.use(express.json())
+// const cors = require("cors");
+// middlewares
+app.use(express.json());
+app.use(cors({ origin: '*'}));
+// body parser configuration
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
